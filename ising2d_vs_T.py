@@ -12,6 +12,19 @@ ntherm = 1000
 VisualDisplay = 1
 SleepTime = 300000  # in microseconds
 
+# Copilot AI code is below in ~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@jit
+def energy(spin, h):
+    E = 0
+    for nx in range(1, NX + 1):
+        for ny in range(1, NY + 1):
+            s = spin[nx, ny]
+            E -= s * (spin[nx+1, ny] + spin[nx-1, ny] +
+                      spin[nx, ny+1] + spin[nx, ny-1])
+            E -= h * s
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 @jit
 def update_spin(nx, ny, env, spin):
     """Do a metropolis update on a spin at position (nx, ny) whose environment is env"""
