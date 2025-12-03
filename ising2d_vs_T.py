@@ -142,7 +142,8 @@ def main():
     plt.title('2D Ising Model Observables vs Temperature')
     plt.legend()
     plt.grid(True)
+    
+    plt.savefig('ising.pdf')
     plt.show()
-
 if __name__ == "__main__":
     main()
